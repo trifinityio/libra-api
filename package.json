@@ -1,0 +1,17 @@
+{
+  "name": "libra-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Trifinity",
+  "license": "ISC",
+  "dependencies": {
+    "express.js": "^1.0.0",
+    "libra-core": "^1.0.4",
+    "morgan": "^1.9.1"
+  }
+}
