@@ -85,13 +85,15 @@ class LibraService
 			return;
 		}
 
+		const address = request.body.address;
+		const amount = request.body.amount;
 		const client = new LibraClient({network: LibraNetwork.Testnet});
 
-		await client.mintWithFaucetService(request.body.address, request.body.amount);
+		await client.mintWithFaucetService(address, amount);
 
 		response.send({
-			address: body.address,
-			amount: body.amount
+			address: address,
+			amount: amount
 		});
 	}
 }
