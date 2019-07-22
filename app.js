@@ -12,6 +12,7 @@ app.use(Morgan(function (tokens, request, response) {
 app.post('/createWallet', LibraService.handleCreateWallet);
 app.post('/getBalance', LibraService.handleGetBalance);
 app.post('/getAddress', LibraService.handleGetAddress);
+app.post('/transactionHistory', LibraService.handleTransactionHistory);
 app.post('/transfer', LibraService.handleTransfer);
 app.post('/mint', LibraService.handleMint);
 app.listen(port);
