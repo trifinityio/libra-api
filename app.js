@@ -1,8 +1,10 @@
+const Dotenv = require('dotenv');
 const Express = require('express');
 const Morgan = require('morgan');
 const LibraService = require('./service');
 
-const port = 3000;
+Dotenv.config();
+
 const app = Express();
 app.use(Express.json());
 app.use(Express.urlencoded({extended: true}));
@@ -15,4 +17,4 @@ app.post('/getAddress', LibraService.handleGetAddress);
 app.post('/transactionHistory', LibraService.handleTransactionHistory);
 app.post('/transfer', LibraService.handleTransfer);
 app.post('/mint', LibraService.handleMint);
-app.listen(port);
+app.listen((process.env.PORT || 3000), (process.env.HOST || 'localhost'));
