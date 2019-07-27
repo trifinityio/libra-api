@@ -1,6 +1,6 @@
 # Libra REST API
 
-REST API for interacting with Libra testnet.
+REST API for interacting with [Libra](http://libra.com) testnet.
 This solution allows to access existing or create new accounts, mint and transfer coins, view transaction history etc. on the testnet.
 
 ## Installation
