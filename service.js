@@ -65,7 +65,15 @@ class LibraService
 		}
 
 		const address = request.body.address;
-		const data = await Axios.get('https://api-test.libexplorer.com/api?module=account&action=txlist&address=' + address);
+		let data = null;
+
+		try {
+			data = await Axios.get('https://api-test.libexplorer.com/api?module=account&action=txlist&address=' + address);
+		} catch (error) {
+			response.status(500).send({msg: 'Failed to fetch transaction history'});
+
+			return;
+		}
 
 		if (!data || !data.data || data.data.status !== '1') {
 			response.status(500).send({msg: 'Failed to fetch transaction history'});
