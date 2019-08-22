@@ -1,6 +1,6 @@
 const Axios = require('axios');
 const Moment = require('moment');
-const {LibraClient, LibraNetwork, Account, LibraWallet} = require('libra-core');
+const {LibraClient, LibraNetwork, LibraWallet, LibraAdmissionControlStatus} = require('libra-core');
 
 function hasValidParameter(parameter, parameters) {
 	return (parameter in parameters && parameters[parameter]);
@@ -124,6 +124,12 @@ class LibraService
 		const transferResponse = await client.transferCoins(account, toAddress, amount);
 
 		await transferResponse.awaitConfirmation(client);
+
+		if (transferResponse.acStatus !== LibraAdmissionControlStatus.ACCEPTED) {
+			response.status(500).send({msg: 'Transfer failed'});
+
+			return;
+		}
 
 		response.send({
 			address: account.getAddress().toString(),
