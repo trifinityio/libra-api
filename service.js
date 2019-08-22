@@ -149,7 +149,13 @@ class LibraService
 		const amount = request.body.amount;
 		const client = new LibraClient({network: LibraNetwork.Testnet});
 
-		await client.mintWithFaucetService(address, amount);
+		try {
+			await client.mintWithFaucetService(address, amount);
+		} catch (error) {
+			response.status(500).send({msg: 'Mint failed'});
+
+			return;
+		}
 
 		response.send({
 			address: address,
