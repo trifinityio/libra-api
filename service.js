@@ -26,7 +26,7 @@ class LibraService
 
 	static async handleGetBalance(request, response) {
 		if (!request.body.address) {
-			response.status(500).send({msg: 'Missing parameters'});
+			response.status(400).send({msg: 'Missing parameters'});
 			
 			return;
 		}
@@ -43,7 +43,7 @@ class LibraService
 
 	static async handleGetAddress(request, response) {
 		if (!request.body.mnemonic) {
-			response.status(500).send({msg: 'Missing parameters'});
+			response.status(400).send({msg: 'Missing parameters'});
 
 			return;
 		}
@@ -59,7 +59,7 @@ class LibraService
 
 	static async handleTransactionHistory(request, response) {
 		if (!request.body.address) {
-			response.status(500).send({msg: 'Missing parameters'});
+			response.status(400).send({msg: 'Missing parameters'});
 
 			return;
 		}
@@ -119,7 +119,7 @@ class LibraService
 
 	static async handleTransfer(request, response) {
 		if (!request.body.mnemonic || !request.body.toAddress || !request.body.amount) {
-			response.status(500).send({msg: 'Missing parameters'});
+			response.status(400).send({msg: 'Missing parameters'});
 
 			return;
 		}
@@ -148,7 +148,7 @@ class LibraService
 
 	static async handleMint(request, response) {
 		if (!request.body.address || !request.body.amount) {
-			response.status(500).send({msg: 'Missing parameters'});
+			response.status(400).send({msg: 'Missing parameters'});
 
 			return;
 		}
