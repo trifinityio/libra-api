@@ -17,4 +17,8 @@ app.post('/getAddress', LibraService.handleGetAddress);
 app.post('/transactionHistory', LibraService.handleTransactionHistory);
 app.post('/transfer', LibraService.handleTransfer);
 app.post('/mint', LibraService.handleMint);
-app.listen((process.env.PORT || 3000), (process.env.HOST || 'localhost'));
+const port = (process.env.PORT || 3000);
+const host = (process.env.HOST || 'localhost');
+app.listen(port, host, () => {
+	console.log(`App started. Listening on ${host}:${port}`);
+});
