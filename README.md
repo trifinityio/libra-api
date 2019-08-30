@@ -14,7 +14,7 @@ Setup:
  1. install Node.js
  2. clone the repository: `git clone https://github.com/trifinityio/libra-api.git`
  3. change into the root directory: `cd libra-api`
- 4. install all Node.js requirements from `package.json`: `npm install`
+ 4. install all Node.js dependencies from `package.json`: `npm install`
  5. copy env.example as .env and adjust values: `cp env.example .env` (optional)
 
 ## Endpoints
