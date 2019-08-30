@@ -44,7 +44,6 @@ class LibraService
 			return;
 		}
 
-		const client = new LibraClient({network: LibraNetwork.Testnet});
 		const wallet = new LibraWallet({mnemonic: request.body.mnemonic.split(';')[0]});
 		const account = wallet.generateAccount(0);
 
