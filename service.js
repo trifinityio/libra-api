@@ -25,9 +25,9 @@ class LibraService
 	}
 
 	static async handleGetBalance(request, response) {
-		if (!hasValidParameter('address', request.body)) {
+		if (!request.body.address) {
 			response.status(500).send({msg: 'Missing parameters'});
-
+			
 			return;
 		}
 
@@ -42,7 +42,7 @@ class LibraService
 	}
 
 	static async handleGetAddress(request, response) {
-		if (!hasValidParameter('mnemonic', request.body)) {
+		if (!request.body.mnemonic) {
 			response.status(500).send({msg: 'Missing parameters'});
 
 			return;
@@ -58,7 +58,7 @@ class LibraService
 	}
 
 	static async handleTransactionHistory(request, response) {
-		if (!hasValidParameter('address', request.body)) {
+		if (!request.body.address) {
 			response.status(500).send({msg: 'Missing parameters'});
 
 			return;
@@ -118,7 +118,7 @@ class LibraService
 	}
 
 	static async handleTransfer(request, response) {
-		if (!hasValidParameter('mnemonic', request.body) || !hasValidParameter('toAddress', request.body) || !hasValidParameter('amount', request.body)) {
+		if (!request.body.mnemonic || !request.body.toAddress || !request.body.amount) {
 			response.status(500).send({msg: 'Missing parameters'});
 
 			return;
@@ -147,7 +147,7 @@ class LibraService
 	}
 
 	static async handleMint(request, response) {
-		if (!hasValidParameter('address', request.body) || !hasValidParameter('amount', request.body)) {
+		if (!request.body.address || !request.body.amount) {
 			response.status(500).send({msg: 'Missing parameters'});
 
 			return;
