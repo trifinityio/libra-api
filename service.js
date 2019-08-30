@@ -2,10 +2,6 @@ const Axios = require('axios');
 const Moment = require('moment');
 const {LibraClient, LibraNetwork, LibraWallet, LibraAdmissionControlStatus} = require('libra-core');
 
-function hasValidParameter(parameter, parameters) {
-	return (parameter in parameters && parameters[parameter]);
-}
-
 class LibraService
 {
 	static async handleCreateWallet(request, response) {
