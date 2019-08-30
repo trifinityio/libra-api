@@ -16,6 +16,7 @@ Setup:
  3. change into the root directory: `cd libra-api`
  4. install all Node.js dependencies from `package.json`: `npm install`
  5. copy env.example as .env and adjust values: `cp env.example .env` (optional)
+ 6. start: `npm start`
 
 ## Endpoints
 
